@@ -1,0 +1,61 @@
+{% extends "base.html"%}
+
+{% block title%}
+{{products.name}}
+
+{% endblock %}
+
+{% block content%}
+
+<h1>{{products.name}}</h1>
+
+    {% if products.image %} 
+        <img src="{{products.image.url}}" width="250" alt="{{products.name}}">
+    {% endif%}
+
+    <p><strong>Description : </strong>{{products.description}} </p>
+    <p><strong>Prix</strong>{{products.price}}</p>
+    <p><strong>Stock</strong>{{products.stock}} </p>
+    <p><strong>Categorie : 
+
+        <a href="{% url 'category_detail' products.category.id %}">{{products.category.name}}</a> 
+    </p>
+
+    <a href="{% url 'product_list' %}">retour à la liste des produits</a>
+
+{% endblock%}
+
+
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>products Detail</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 2px solid blue;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html> {% endcomment %}
